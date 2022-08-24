@@ -71,6 +71,7 @@ baseUrl: '/xr-development-for-beginners/',
 organizationName: 'nitya', 
 projectName: 'xr-development-for-beginners', 
 deploymentBranch: 'gh-pages',
+trailingSlash: false,
 ```
 
 Then test that deploy works from local development enviroment using:
@@ -78,3 +79,18 @@ Then test that deploy works from local development enviroment using:
 ```
 $ GIT_USER=nitya GIT_PASS=<personal-access-token> npm run deploy
 ```
+
+---
+### 5. Refactor Content
+
+Some things to keep in mind:
+ * Host static assets under the `static/` subdirectory and reference them with relative paths.
+ * Move unit folders under `docs` then refactor to fix link breaks, add front-matter, flatten structure
+ * Run `npx docusaurus build` locally to verify that build works. This will identify broken links (which break build) for easier fixing
+
+See example for Unit 1.
+
+---
+### 6. TODO: Automate With Actions
+
+---

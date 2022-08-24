@@ -17,6 +17,7 @@ const config = {
   organizationName: 'nitya', 
   projectName: 'xr-development-for-beginners', 
   deploymentBranch: 'gh-pages',
+  trailingSlash: false,
   favicon: 'img/favicon.ico',
 
   // CONFIG-ME: Get early-detecton of broken links
@@ -101,9 +102,9 @@ const config = {
       },
 
       navbar: {
-        title: 'My Site',
+        title: 'Learn XR',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'XR Development For Beginners Logo',
           src: 'img/logo.svg',
         },
         items: [
@@ -111,10 +112,10 @@ const config = {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Curriculum',
           },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/microsoft/xr-development-for-beginners',
             label: 'GitHub',
             position: 'right',
           },
