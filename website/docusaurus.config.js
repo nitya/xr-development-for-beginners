@@ -6,56 +6,100 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+
+  // CONFIG-ME: Update for Landing Page Hero section
+  title: 'XR Development For Beginners',
+  tagline: '8-week Curriculum on eXtended Reality (XR)',
+
+  // CONFIG-ME: Update for GitHub Pages
+  url: 'https://nitya.github.io',
+  baseUrl: '/xr-development-for-beginners/',
+  organizationName: 'nitya', 
+  projectName: 'xr-development-for-beginners', 
+  deploymentBranch: 'gh-pages',
   favicon: 'img/favicon.ico',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  // CONFIG-ME: Get early-detecton of broken links
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
 
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
+
+  // CONFIG-ME: Configure for more locales (e.g., jp)
+  //       See: https://docusaurus.io/docs/api/docusaurus-config#i18n
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
 
+// -------- START PRESETS CONFIG ------------
+// See: https://docusaurus.io/docs/using-plugins#docusauruspreset-classic
   presets: [
     [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+
+
+        // CONFIG-ME: Will be passed to @docusaurus/plugin-content-docs
+        //       Set: false to disable blog feature
+        //       See: https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs
+        // Use Categories to create hierarchy of sidebar items (in sidebars.js)
+        //       See: https://docusaurus.io/docs/sidebar/items#sidebar-item-category 
         docs: {
+          path: 'docs',
+          breadcrumbs: true,
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
+
+        // CONFIG-ME: Will be passed to @docusaurus/plugin-content-docs
+        //       Set: false to disable docs feature
+        //       See: https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog
+        // If disabling blog, remember to:
+        //  delete blog/ folder to save space
+        //  remove blog route from navigation config settings below
+        blog: false,
+        
+        // CONFIG-ME: Will be passed to @docusaurus/plugin-content-pages
+        //       Set: false to disable pages feature
+        //       See: https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-pages
+        pages: {},
+
+        // CONFIG-ME:  Will be passed to @docusaurus/theme-classic.
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+
+        // CONFIG-ME: Will be passed to @docusaurus/plugin-content-sitemap
+        //    Add it: `npm install --save @docusaurus/plugin-sitemap`
+        //       Set: false to disable it 
+        //     Route: /sitemap.xml
+        //       See: https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-sitemap
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
+        },
+
       }),
     ],
   ],
+// -------- END PRESETS CONFIG --------------
+
+  // CONFIG-ME: Configure UI elements like navbar, footer, sidebar 
+  //       See: https://docusaurus.io/docs/api/docusaurus-config#themeConfig
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      
+      docs: {
+        sidebar: {
+          hideable: true,
+          autoCollapseCategories: false,
+        },
+      },
+
       navbar: {
         title: 'My Site',
         logo: {
@@ -69,7 +113,6 @@ const config = {
             position: 'left',
             label: 'Tutorial',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',
@@ -77,6 +120,7 @@ const config = {
           },
         ],
       },
+
       footer: {
         style: 'dark',
         links: [
@@ -110,10 +154,6 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
                 label: 'GitHub',
                 href: 'https://github.com/facebook/docusaurus',
               },
@@ -122,10 +162,12 @@ const config = {
         ],
         copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
       },
+
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+
     }),
 };
 
