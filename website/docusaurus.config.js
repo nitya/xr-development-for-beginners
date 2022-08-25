@@ -46,8 +46,14 @@ const config = {
         //       See: https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs
         // Use Categories to create hierarchy of sidebar items (in sidebars.js)
         //       See: https://docusaurus.io/docs/sidebar/items#sidebar-item-category 
+        // ------------------
+        // Set: docs-only mode
+        // See: https://docusaurus.io/docs/docs-introduction/
+        // Don't forget to add slug '/' to docs root page
+        // Remove pages at index
+        // ------------------
         docs: {
-          path: 'docs',
+          routeBasePath: '/', // Serve docs at site root
           breadcrumbs: true,
           sidebarPath: require.resolve('./sidebars.js'),
         },
@@ -102,18 +108,20 @@ const config = {
       },
 
       navbar: {
-        title: 'Learn XR',
+        title: 'XR Dev',
         logo: {
           alt: 'XR Development For Beginners Logo',
           src: 'img/logo.svg',
         },
         items: [
+          /*
           {
             type: 'doc',
             docId: 'intro',
             position: 'left',
             label: 'Curriculum',
           },
+          */
           {
             href: 'https://github.com/microsoft/xr-development-for-beginners',
             label: 'GitHub',
@@ -126,42 +134,30 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
+            label: 'Mixed Reality',
+            to: 'https://docs.microsoft.com/en-us/windows/mixed-reality/',
           },
           {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
-            ],
+            label: 'WebXR',
+            to: 'https://docs.microsoft.com/en-us/windows/mixed-reality/develop/javascript/webxr-overview',
           },
           {
-            title: 'More',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
-            ],
+            label: 'Babylon.js',
+            to: 'https://www.babylonjs.com/'
+          },
+          {
+            label: '#30Days Hub',
+            to: 'https://aka.ms/30DaysOf',
+          },
+          {
+            label: 'Privacy Statement ',
+            to: 'https://privacy.microsoft.com/en-us/privacystatement',
+          },
+          { 
+           label: `Copyright © ${new Date().getFullYear()} Microsoft`,
+           to: 'https://microsoft.com'
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
       },
 
       prism: {

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: "Introduction"
+slug: /
 ---
 
 [![GitHub license](https://img.shields.io/github/license/microsoft/xr-development-for-beginners.svg)](https://github.com/microsoft/xr-development-for-beginners/blob/master/LICENSE)
